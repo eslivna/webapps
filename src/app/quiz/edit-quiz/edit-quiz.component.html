@@ -1,0 +1,70 @@
+<form [formGroup]="form" (ngSubmit)='onSubmit()'>
+  <div class="row justify-content-md-center">
+    <div class="col-md-10 form-wrapper">
+      <div class="form-group question-title">
+        <label for="name_id" class="col-form-label">The name of your quiz</label>
+        <input type="text" id="name_id" class="form-control" formControlName='name'>
+      </div>
+
+      <div formArrayName="questions">
+        <div *ngFor="let item of form.controls.questions.controls; let i=index" [formGroupName]="i">
+          <input type="hidden" formControlName="questionId" />
+          <div class="question-wrapper row">
+            <div class="col-md-2">
+              <h4>Question{{ i + 1 }}</h4>
+            </div>
+            <div class="col-md-9">
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Question</label>
+                <div class="col-sm-10">
+                  <input formControlName="question" class="form-control">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Answer 1</label>
+                <div class="col-sm-10">
+                  <input formControlName="answerOne" class="form-control">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Answer 2</label>
+                <div class="col-sm-10">
+                  <input formControlName="answerTwo" class="form-control">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Answer 3</label>
+                <div class="col-sm-10">
+                  <input formControlName="answerThree" class="form-control">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Answer 4</label>
+                <div class="col-sm-10">
+                  <input formControlName="answerFour" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <button *ngIf="form?.controls?.questions?.controls?.length > 1" (click)="deleteRow(i)" class="btn btn-danger" title="Remove this question">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+              <button *ngIf="form?.controls?.questions?.controls?.length <= 1" (click)="deleteRow(i)" class="btn btn-danger" title="Remove this question"
+                      disabled>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="sticky-top actions">
+        <button type="button" (click)="addNewRow()" class="btn btn-primary btn-block">Add new question</button>
+        <button type='submit' class="btn btn-primary  btn-block">Save</button>
+      </div>
+    </div>
+  </div>
+</form>

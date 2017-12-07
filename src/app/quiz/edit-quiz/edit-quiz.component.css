@@ -1,0 +1,21 @@
+.form-wrapper{
+  background-color: whitesmoke;
+}
+
+.question-title{
+  padding: 10px 10px 15px 10px;
+  border-radius: 5px;
+  background-color: lightgray;
+  margin-top:5px;
+}
+
+.question-wrapper{
+  padding: 15px 10px 10px 10px;
+  margin: 5px 0;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+.actions{
+  margin: 5px 0;
+}

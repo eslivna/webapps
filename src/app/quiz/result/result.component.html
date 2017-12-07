@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="card">
+      <div class="card-header">
+        <h4>Results of the quiz: {{quiz?.name}}</h4>
+      </div>
+      <div *ngFor="let question of quiz?.questions ; let i = index" class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Question {{i+1}}  {{question.question}} </h4>
+            <p>Answer 1: {{question.answerOne}} </p>
+            <p>Answer 2: {{question.answerTwo}}</p>
+            <p>Answer 3: {{question.answerThree}}</p>
+            <p>Answer 4: {{question.answerFour}}</p>
+          </div>
+          <div class="col-md-6">
+            <app-chart [answerOne]="getNumberOfAnswers(question.id, question.answerOne)"
+                       [answerTwo]="getNumberOfAnswers(question.id, question.answerTwo)"
+                       [answerThree]="getNumberOfAnswers(question.id, question.answerThree)"
+                       [answerFour]="getNumberOfAnswers(question.id, question.answerFour)"
+                       [question]="i+1"></app-chart>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

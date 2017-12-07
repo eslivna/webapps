@@ -1,0 +1,24 @@
+<div class="row justify-content-md-center">
+  <div class="col-md-6">
+    <form [formGroup]='user' (ngSubmit)='onSubmit()' class="ui large form segment">
+      <h3>login</h3>
+      <div class="form-group row">
+        <label for="username" class="col-sm-2 col-form-label">Username</label>
+        <div class="col-sm-10">
+          <input type="text" id="username" class="form-control" formControlName='username'>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="password" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+          <input type="password" id="password" class="form-control" formControlName='password'>
+        </div>
+      </div>
+      <div class="pull-right">
+        <button type='submit' [disabled]='!user.valid' class="btn btn-primary">Log in</button>
+        <button class='btn btn-info' type="button" routerLink="/register">Register</button>
+      </div>
+      <div *ngIf='errorMsg' class="alert alert-danger" role="alert">>{{errorMsg}}</div>
+    </form>
+  </div>
+</div>
