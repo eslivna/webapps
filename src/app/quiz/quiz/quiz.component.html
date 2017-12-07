@@ -1,23 +1,29 @@
 <div class="card">
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-12">
-        <h5 class="card-title">Name:  {{quiz.name}}</h5>
-      </div>
-      <div class="col-md-10">
-        <div class="alert alert-warning" role="alert">
-         <a routerLink="/{{quiz.id}}" class="alert-link" title="link to your quiz"> <i class="fa fa-link" aria-hidden="true"></i>http://localhost:4200/{{quiz.id}}</a>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h5 class="card-title">Name: {{quiz.name}}</h5>
+            </div>
+            <div class="col-md-10">
+                <div class="alert alert-warning" role="alert">
+                    <a routerLink="/{{quiz.id}}" class="alert-link" title="link to your quiz"> <i class="fa fa-link"
+                                                                                                  aria-hidden="true"></i>
+                        {{url.origin + "/"+quiz.id}}</a> <span class="pull-right">Copy and share your quiz link</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button routerLink="/quiz/edit/{{quiz.id}}" title="Edit" class="btn btn-primary"><i class="fa fa-pencil"
+                                                                                                    aria-hidden="true"></i>
+                </button>
+                <button routerLink="/quiz/result/{{quiz.id}}" title="Results" class="btn btn-info"><i
+                        class="fa fa-bar-chart"
+                        aria-hidden="true"></i></button>
+                <button class="btn btn-danger " title="Remove" (click)="removeQuiz()"><i class="fa fa-trash"
+                                                                                         aria-hidden="true"></i>
+                </button>
+            </div>
         </div>
-      </div>
-      <div class="col-md-2">
-        <button routerLink="/quiz/edit/{{quiz.id}}" title="Edit" class="btn btn-primary"><i class="fa fa-pencil"
-                                                                               aria-hidden="true"></i></button>
-        <button routerLink="/quiz/result/{{quiz.id}}" title="Results" class="btn btn-info"><i class="fa fa-bar-chart"
-                                                                              aria-hidden="true"></i></button>
-        <button class="btn btn-danger " title="Remove" (click)="removeQuiz()"><i class="fa fa-trash" aria-hidden="true"></i></button>
-      </div>
     </div>
-  </div>
 </div>
 
 

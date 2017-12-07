@@ -10,7 +10,7 @@ import {Result} from './result.model';
 
 @Injectable()
 export class QuizDataService {
-  private _appUrl = 'http://localhost:4200/API';
+  private _appUrl = '/API';
 
   constructor(private http: Http, private auth: AuthenticationService) {
   }
