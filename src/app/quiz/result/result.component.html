@@ -15,11 +15,7 @@
                         <p>Answer 4: {{question.answerFour}}</p>
                     </div>
                     <div class="col-md-6">
-                        <div *ngIf="
-                           getNumberOfAnswers(question.id, question.answerOne)  != 0
-                        && getNumberOfAnswers(question.id, question.answerOne)  !=0
-                        && getNumberOfAnswers(question.id, question.answerThree)!=0
-                        && getNumberOfAnswers(question.id, question.answerFour) !=0; else noResultBlock">
+                        <div *ngIf="quiz.results[0] ; else noResultBlock">
                             <app-chart
                                     [answerOne]="getNumberOfAnswers(question.id, question.answerOne)"
                                     [answerTwo]="getNumberOfAnswers(question.id, question.answerTwo)"
