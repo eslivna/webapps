@@ -1,4 +1,4 @@
-//require('dotenv').config({path:'./app.env'});
+require('dotenv').config({path:'./app.env'});
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -16,7 +16,7 @@ require('./models/Result');
 require('./config/passport');
 
 
-mongoose.connect(process.env.QUIZ_DATABASE, , {  useMongoClient: true });
+mongoose.connect(process.env.QUIZ_DATABASE, {  useMongoClient: true });
 
 var index = require('./routes/index');
 var users = require('./routes/users');
