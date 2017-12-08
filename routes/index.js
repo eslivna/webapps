@@ -32,15 +32,15 @@ router.post('/API/quizzes/', auth, function (req, res, next) {
         let question = new Question(req.body.questions[i]);
         question.save(function (err, post) {
                 if (err) return err;
-                question._id = post._id;
+                question.id = post._id;
                 quiz.questions.push(question);
                 quiz.save(function (err, post) {
                     if (err) return next(err);
+                    res.json(post);
                 });
             }
         );
     }
-    return res.json(quiz);
 });
 
 
@@ -111,7 +111,7 @@ router.post('/API/quiz/:quiz/question', function (req, res, next) {
     let question = new Question(req.body);
     question.save(function (err, post) {
             if (err) return err;
-            question._id = post._id;
+            question.id = post._id;
             req.quiz.questions.push(question);
             req.quiz.save(function (err, post) {
                 if (err) return next(err);

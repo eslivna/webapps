@@ -70,7 +70,7 @@ export class AddQuizComponent implements OnInit {
       const question = new Question(q.question, q.answerOne, q.answerTwo, q.answerThree, q.answerFour);
       quiz.addQuestion(question);
     }
-    console.log(quiz);
+
     this._quizDataService.addNewQuiz(quiz).subscribe(item => {
       if (item) {
         this._router.navigate(['quiz/dashboard']);
