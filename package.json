@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "backend-test": "node ./node_modules/jasmine/bin/jasmine.js",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build"
   },
   "engines": {
     "node": "6.11.3",
